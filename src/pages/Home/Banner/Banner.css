@@ -1,0 +1,29 @@
+.banner-1 {
+  background: url("../../../image/banner/pexels-cottonbro-4604599.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banner-2 {
+  background: url("../../../image/banner/pexels-pavel-danilyuk-6407538.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.banner-design {
+  background: #ff5d01;
+  opacity: 0.8;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.banner-design * {
+  opacity: 1;
+}
+.banner-design h2 {
+  font-family: "Satisfy", cursive;
+}
+s .banner-design p {
+  font-family: "Baloo 2", cursive;
+}
