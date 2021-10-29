@@ -22,8 +22,9 @@
   opacity: 1;
 }
 .banner-design h2 {
-  font-family: "Satisfy", cursive;
+  font-family: "Henny Penny", cursive;
+  color: white;
 }
-s .banner-design p {
-  font-family: "Baloo 2", cursive;
+.banner-design p {
+  font-family: "Titillium Web", sans-serif;
 }

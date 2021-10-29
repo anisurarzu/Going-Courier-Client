@@ -1,0 +1,14 @@
+.curved {
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.curved svg {
+  display: block;
+}
+.count-card {
+  border-right: 2px dotted rgb(182, 179, 179);
+}
+.count-title {
+  color: #ff5d01;
+}

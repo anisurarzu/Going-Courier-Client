@@ -1,0 +1,9 @@
+.service-card h3 {
+  font-family: "Ubuntu", sans-serif;
+}
+.service-card p {
+  font-family: "Titillium Web", sans-serif;
+}
+.btn-design {
+  background-color: rgb(255, 93, 1);
+}

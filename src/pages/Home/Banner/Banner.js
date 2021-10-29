@@ -12,7 +12,7 @@ const Banner = () => {
   function onChange(a, b, c) {}
   return (
     <div>
-      <Carousel afterChange={onChange}>
+      <Carousel autoplay afterChange={onChange}>
         {/* slider 1 */}
         <div className="banner-1">
           <div
@@ -52,7 +52,7 @@ const Banner = () => {
                 Here at "Going.." We Offer
               </h2>
               <h1 className="text-4xl lg:text-6xl text-white font-extrabold">
-                World Class Services
+                Reliable Delivery for Your Business.
               </h1>
               <hr />
               <p className="text-sm lg:text-lg">
@@ -61,6 +61,7 @@ const Banner = () => {
                 its efficient distribution management.
               </p>
             </div>
+
             <div></div>
           </div>
         </div>
