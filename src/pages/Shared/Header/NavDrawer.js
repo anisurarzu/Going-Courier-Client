@@ -34,26 +34,14 @@ const NavDrawer = ({ visible, setVisible, user, logOut }) => {
           >
             Home
           </NavLink>
-          <NavLink
-            to="/doctors"
-            className="py-2 text-gray-700"
-            onClick={closeDrawer}
-          >
-            Doctors
-          </NavLink>
-          <NavLink
-            to="/about"
-            className="py-2 text-gray-700"
-            onClick={closeDrawer}
-          >
-            About
-          </NavLink>
+
           <div>
             {user?.email && (
               <span>
                 <NavLink to="/admin" className="text-gray-700">
                   Admin
                 </NavLink>
+                <br />
                 <br />
                 <NavLink to="/myorders" className="text-gray-700">
                   My Orders

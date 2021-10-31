@@ -8,7 +8,7 @@ const AddService = () => {
   const [message, setMessage] = useState("");
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     axios
       .post("https://frightful-demon-22619.herokuapp.com/services", data)
       .then((res) => {
@@ -36,12 +36,14 @@ const AddService = () => {
                 className="border-2 p-2 w-1/3 mr-8 rounded"
                 {...register("name")}
                 placeholder="service name"
+                required
               />
               <input
                 className="border-2 p-2 w-1/3 mr-8 rounded"
                 type="number"
                 {...register("price")}
                 placeholder="service price"
+                required
               />
             </div>
 
@@ -50,11 +52,13 @@ const AddService = () => {
                 className="border-2 p-2 w-1/3 mr-8 rounded"
                 {...register("describe")}
                 placeholder="service details"
+                required
               />
               <input
                 className="border-2 p-2 w-1/3 mr-8 rounded"
                 {...register("img")}
                 placeholder="img url"
+                required
               />
             </div>
 

@@ -28,7 +28,7 @@ const ManageOrders = () => {
           if (result.deletedCount > 0) {
             const restOrder = order.filter((order) => order._id !== id);
             setOrder(restOrder);
-            setMessage("Your Order Deleted Successfully!");
+            setMessage("Order Deleted Successfully!");
           }
         });
     }
@@ -41,7 +41,7 @@ const ManageOrders = () => {
       <h4 className="text-green-500 ">{message}</h4>
       <div className="grid grid-cols-2 xl:grid-cols-6 lg:grid-cols-6 header py-12">
         <div>Service</div>
-        <div>Price Range</div>
+        <div>Customer</div>
         <div>Product Type</div>
         <div>
           From <i class="fas fa-arrow-right"></i> To
@@ -53,7 +53,7 @@ const ManageOrders = () => {
         <div>
           <div className="grid grid-cols-2 grid:cols-6 xl:grid-cols-6 lg:grid-cols-6 md:grid-cols-6  border-2 border-dotted  xl:border-b-4 lg:border-b-4  p-6 mx-4 xl:mx-0 lg:mx-0">
             <h3 className="border-r-2">{order.serviceName}</h3>
-            <h5 className="border-r-2 ">{order.price}</h5>
+            <h5 className="border-r-2 ">{order.email}</h5>
             <h5 className="border-r-2">{order.type}</h5>
             <h5 className="border-r-2 px-2">
               {order.sending_location}

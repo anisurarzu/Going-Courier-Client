@@ -113,6 +113,7 @@ const ServiceDetails = () => {
                   <select
                     className=" border-2 p-2 w-1/3 mr-8 rounded"
                     {...register("type")}
+                    required
                   >
                     <option value="foods">Foods</option>
                     <option value="electronics">Electronics</option>
@@ -128,11 +129,13 @@ const ServiceDetails = () => {
                     type="number"
                     {...register("quantity")}
                     placeholder="quantity"
+                    required
                   />
                   <input
                     className="border-2 p-2 w-1/3 mr-8 rounded"
                     {...register("phone")}
                     placeholder="phone number"
+                    required
                   />
                 </div>
                 <br />
@@ -142,11 +145,13 @@ const ServiceDetails = () => {
                     className="border-2 p-2 w-1/3 mr-8 rounded"
                     {...register("sending_location")}
                     placeholder="from"
+                    required
                   />
                   <input
                     className="border-2 p-2 w-1/3 mr-8 rounded"
                     {...register("receiving_location")}
                     placeholder="to"
+                    required
                   />
                 </div>
 

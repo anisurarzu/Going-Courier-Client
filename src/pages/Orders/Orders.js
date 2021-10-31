@@ -15,7 +15,7 @@ const Orders = () => {
       .then((data) => {
         const myOrders = data.filter((data) => data.email === email);
         setOrder(myOrders);
-        console.log(myOrders);
+        // console.log(myOrders);
       });
   }, []);
   // Delete An Order

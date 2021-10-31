@@ -1,7 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Count.css";
 
 const Count = () => {
+  const [count, setCount] = useState({
+    client: 0,
+    office: 0,
+    country: 0,
+    review: 0,
+  });
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (!scrolled && window.scrollY > 1500) {
+        setScrolled(true);
+      }
+    });
+  }, []);
+  useEffect(() => {
+    if (count.client < 10 && scrolled) {
+      setTimeout(() => {
+        let newCount = {
+          client: count.client + 1,
+          office: count.office + 32,
+          country: count.country + 4,
+          review: count.review + 12,
+        };
+        setCount(newCount);
+      }, 100);
+    }
+  }, [count, scrolled]);
   return (
     <div>
       <div className="curved-upper">
@@ -14,22 +41,30 @@ const Count = () => {
         </svg>
       </div>
       <div className="curved">
-        <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 ">
+        <div className="grid xl:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 sm:py-4 ">
           <div className="count-card">
             <p className="text-xl text-gray-500">Satisfied Clients</p>
-            <h2 className="text-5xl font-bold count-title">10M</h2>
+            <h2 className="text-5xl font-bold pt-4 count-title">
+              {count.client}M
+            </h2>
           </div>
           <div className="count-card">
             <p className="text-xl text-gray-500">Offices Worldwide</p>
-            <h2 className="text-5xl font-bold count-title">332+</h2>
+            <h2 className="text-5xl font-bold pt-4 count-title">
+              {count.office}+
+            </h2>
           </div>
           <div className="count-card">
             <p className="text-xl text-gray-500">Countries Covered</p>
-            <h2 className="text-5xl font-bold count-title">37+</h2>
+            <h2 className="text-5xl font-bold pt-4 count-title">
+              {count.country}+
+            </h2>
           </div>
           <div>
             <p className="text-xl text-gray-500">Reviews</p>
-            <h2 className="text-5xl font-bold count-title">21k</h2>
+            <h2 className="text-5xl font-bold pt-4 count-title">
+              {count.review}k
+            </h2>
           </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">

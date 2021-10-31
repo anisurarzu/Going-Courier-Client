@@ -8,7 +8,7 @@ const UpdateOrder = () => {
   const [order, setOrder] = useState({});
   const [message, setMessage] = useState("");
   const { orderId } = useParams();
-  console.log("orderid", orderId);
+  // console.log("orderid", orderId);
 
   useEffect(() => {
     fetch(`https://frightful-demon-22619.herokuapp.com/orders/${orderId}`)
@@ -47,20 +47,27 @@ const UpdateOrder = () => {
       </h2>
       <span className="py-2 text-green-500">{message}</span>
       <div className="pb-24">
-        <h2>{order.serviceName || ""}</h2>
-        <h2>Order-status: {order.status || ""}</h2>
+        <h2 className="text-xl text-yellow-700">
+          Service Name: ({order.serviceName || ""})
+        </h2>
+        <h2 className="tex-xl text-yellow-500 p-2">
+          Order-status: {order.status || ""}
+        </h2>
         <form
           className="xl:shadow-lg lg:shadow-lg p-4 xl:mx-96 lg:mx-96 rounded-lg"
           onSubmit={handleUpdateOrderStatus}
         >
           <label htmlFor="status">Update Order Status</label>
           <br />
-          <input
+
+          <select
+            className="p-2 border-2 xl:p-2 lg:p-2 rounded my-2"
             onChange={handleStatusChange}
-            className="p-2 border-2 rounded border-red-500"
-            value={order.status || ""}
-            type="text"
-          />
+          >
+            <option value="processing">Processing</option>
+            <option value="reject">Reject</option>
+            <option value="approved">Approved</option>
+          </select>
           <br />
           <input
             className="btn-design p-2 my-2 text-white rounded shadow"

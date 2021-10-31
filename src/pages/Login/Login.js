@@ -3,16 +3,16 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 
 import "./Login.css";
 
-// import AOS from "aos";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 import useAuth from "../../hooks/useAuth";
 const Login = () => {
-  //   useEffect(() => {
-  //     AOS.init({
-  //       offset: 100,
-  //       duration: 1500,
-  //     });
-  //   }, []);
+  useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 1500,
+    });
+  }, []);
   const {
     error,
     userLogin,
@@ -46,7 +46,10 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container flex flex-col items-center  grid justify-center w-screen lg:mt-4 mt-16  text-gray-700">
+    <div
+      data-aos="zoom-out"
+      className="login-container flex flex-col items-center  grid justify-center w-screen lg:mt-4 mt-16  text-gray-700"
+    >
       <span className="text-yellow-600 ">{error}</span>
       <div className="grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 xl:py-32 lg:py-32">
         <div>
@@ -57,7 +60,7 @@ const Login = () => {
           />
         </div>
         <div className="xl:py-8 lg:py-8 sm:py-2">
-          <p className="text-2xl font-bold text-gray-800">
+          <p className="text-2xl font-bold text-gray-800 py-8">
             Please Login First!
           </p>
           <button
