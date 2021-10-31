@@ -11,7 +11,7 @@ const Support = () => {
       </h2>
 
       <div className="grid gap-4 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        <div data-aos="zoom-out-right">
+        <div>
           <img
             className="lg:object-contain lg:h-48 w-full"
             src={callSupport}
@@ -25,7 +25,7 @@ const Support = () => {
             sorts of queries and needs of the clients.
           </p>
         </div>
-        <div data-aos="zoom-out-up">
+        <div>
           <img
             className="lg:object-contain lg:h-48 w-full"
             src={maplive}
@@ -39,7 +39,7 @@ const Support = () => {
             can know the current status of product delivery.
           </p>
         </div>
-        <div data-aos="zoom-out-left">
+        <div>
           <img
             className="lg:object-contain lg:h-48 w-full"
             src={security}

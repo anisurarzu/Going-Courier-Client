@@ -20,7 +20,7 @@ const Banner = () => {
             className="banner-design pt-16 grid xl:grid-cols-1 lg:grid-cols-1 md:grid-cols-1 sm:grid-cols-1"
           >
             <div
-              data-aos="zoom-in-left"
+              data-aos="fade-down"
               className="items-stretch lg:text-left lg:pl-32 text-center grid items-center justify-center"
             >
               <h2 className="text-2xl tracking-widest text-gray-700 pb-2 pt-8 font-extrabold">

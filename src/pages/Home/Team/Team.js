@@ -17,9 +17,7 @@ const Team = () => {
       <div className="grid gap-8 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 ">
         {/* card-1 */}
         <div
-          data-aos="fade-right"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine"
+          data-aos="fade-down"
           className="grid justify-center items-center xl:shadow-lg lg:shadow-lg
           sm:shadow-lg "
         >
@@ -48,8 +46,7 @@ const Team = () => {
         </div>
         {/* card-2 */}
         <div
-          data-aos="fade-up"
-          data-aos-anchor-placement="top-bottom"
+          data-aos="fade-down"
           className="grid justify-center items-center xl:shadow-lg lg:shadow-lg sm:shadow-lg"
         >
           <div className="flex items-center justify-center pt-4">
@@ -77,9 +74,7 @@ const Team = () => {
         </div>
         {/* card 3 */}
         <div
-          data-aos="fade-left"
-          data-aos-offset="300"
-          data-aos-easing="ease-in-sine"
+          data-aos="fade-down"
           className="grid justify-center items-center xl:shadow-lg lg:shadow-lg sm:shadow-lg"
         >
           <div className="flex items-center justify-center pt-4">
