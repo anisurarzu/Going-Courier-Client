@@ -13,14 +13,14 @@ const Header = () => {
   return (
     <div className="mx-auto">
       <nav className=" px-5 bg-white fixed left-0 right-0 top-0 h-16 lg:h-20 shadow-lg text-sm font-bold nav-container flex justify-between items-center z-50">
-        <Link
+        <NavLink
           className="lg:h-full logo flex items-center lg:font-extrabold"
           to="/home"
         >
           <p>
             <img className="w-1/2" src={logo} alt="" />
           </p>
-        </Link>
+        </NavLink>
         <button
           className="lg:hidden "
           onClick={() => setNavDrawerVisible(true)}
@@ -35,7 +35,7 @@ const Header = () => {
           <div>
             {user?.email && (
               <span>
-                <Link to="/myorders">My Orders</Link>
+                <NavLink to="/myorders">My Orders</NavLink>
               </span>
             )}
           </div>

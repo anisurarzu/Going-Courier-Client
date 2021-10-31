@@ -1,6 +1,6 @@
 import { Spin } from "antd";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import useService from "../../hooks/useServices";
 import { useForm } from "react-hook-form";
@@ -18,7 +18,7 @@ const ServiceDetails = () => {
   const { serviceId } = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${serviceId}`)
+    fetch(`https://frightful-demon-22619.herokuapp.com/services/${serviceId}`)
       .then((res) => res.json())
       .then((data) => setSingleService(data));
   }, []);
@@ -26,7 +26,7 @@ const ServiceDetails = () => {
   const onSubmit = (data) => {
     let orderStatus = "pending";
     data.status = orderStatus;
-    fetch("http://localhost:5000/orders", {
+    fetch("https://frightful-demon-22619.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

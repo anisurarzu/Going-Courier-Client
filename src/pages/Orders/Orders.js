@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
 import "./Orders.css";
@@ -10,7 +10,7 @@ const Orders = () => {
   const { user } = useAuth();
   let email = user?.email;
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://frightful-demon-22619.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => {
         const myOrders = data.filter((data) => data.email === email);
@@ -23,7 +23,7 @@ const Orders = () => {
     const check = window.confirm("Are you sure,you want to cancel this order?");
 
     if (check) {
-      const url = `http://localhost:5000/orders/${id}`;
+      const url = `https://frightful-demon-22619.herokuapp.com/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })

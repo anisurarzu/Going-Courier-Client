@@ -1,8 +1,8 @@
 import { restElement } from "@babel/types";
 import React, { useEffect } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { useParams } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const UpdateOrder = () => {
   const [order, setOrder] = useState({});
@@ -11,7 +11,7 @@ const UpdateOrder = () => {
   console.log("orderid", orderId);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders/${orderId}`)
+    fetch(`https://frightful-demon-22619.herokuapp.com/orders/${orderId}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);
@@ -24,7 +24,7 @@ const UpdateOrder = () => {
   };
   const handleUpdateOrderStatus = (e) => {
     e.preventDefault();
-    const url = `http://localhost:5000/orders/${orderId}`;
+    const url = `https://frightful-demon-22619.herokuapp.com/orders/${orderId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -70,11 +70,11 @@ const UpdateOrder = () => {
         </form>
       </div>
 
-      <Link to="/manageOrders">
+      <NavLink to="/manageOrders">
         <button className="p-2 btn-design text-white rounded">
           Manage Orders
         </button>
-      </Link>
+      </NavLink>
     </div>
   );
 };

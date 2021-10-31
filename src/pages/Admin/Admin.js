@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import ManageOrders from "./ManageOrders/ManageOrders";
 
 const Admin = () => {
@@ -14,16 +14,16 @@ const Admin = () => {
       </div>
       {/* button */}
       <div>
-        <Link to="/addService">
+        <NavLink to="/addService">
           <button className="btn-design p-2 mx-28 my-4 rounded text-white">
             Add New Service
           </button>
-        </Link>
-        <Link to="/manageOrders">
+        </NavLink>
+        <NavLink to="/manageOrders">
           <button className="btn-design p-2 mx-28 rounded text-white">
             Manage All Orders
           </button>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

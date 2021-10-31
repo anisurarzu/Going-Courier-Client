@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 const ManageOrders = () => {
   const [order, setOrder] = useState([]);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://frightful-demon-22619.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => {
         setOrder(data);
@@ -19,7 +19,7 @@ const ManageOrders = () => {
     const check = window.confirm("Are you sure,you want to Delete this order?");
 
     if (check) {
-      const url = `http://localhost:5000/orders/${id}`;
+      const url = `https://frightful-demon-22619.herokuapp.com/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -77,11 +77,11 @@ const ManageOrders = () => {
       ))}
 
       <div>
-        <Link to="/admin">
+        <NavLink to="/admin">
           <button className=" p-2 mt-8 btn-design text-white rounded shadow">
             Go to Admin Panel
           </button>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );

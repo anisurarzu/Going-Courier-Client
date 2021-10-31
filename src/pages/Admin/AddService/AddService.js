@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 
 const AddService = () => {
   const [message, setMessage] = useState("");
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    axios.post("http://localhost:5000/services", data).then((res) => {
-      if (res.data.insertedId) {
-        setMessage("SuccessFully Inserted!");
-      }
-    });
+    axios
+      .post("https://frightful-demon-22619.herokuapp.com/services", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          setMessage("SuccessFully Inserted!");
+        }
+      });
   };
 
   return (
@@ -65,11 +67,11 @@ const AddService = () => {
         <div></div>
       </div>
       <div>
-        <Link to="/admin">
+        <NavLink to="/admin">
           <button className=" p-2 mt-8 btn-design text-white rounded shadow">
             Go to Admin Panel
           </button>
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
