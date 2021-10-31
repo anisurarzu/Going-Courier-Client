@@ -14,9 +14,11 @@ const Admin = () => {
       </div>
       {/* button */}
       <div>
-        <button className="btn-design p-2 mx-28 my-4 rounded text-white">
-          Add New Service
-        </button>
+        <Link to="/addService">
+          <button className="btn-design p-2 mx-28 my-4 rounded text-white">
+            Add New Service
+          </button>
+        </Link>
         <Link to="/manageOrders">
           <button className="btn-design p-2 mx-28 rounded text-white">
             Manage All Orders

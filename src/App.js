@@ -12,7 +12,8 @@ import Admin from "./pages/Admin/Admin";
 import Orders from "./pages/Orders/Orders";
 import ManageOrders from "./pages/Admin/ManageOrders/ManageOrders";
 import UpdateOrder from "./pages/Admin/UpdateOrder/UpdateOrder";
-
+import AddService from "./pages/Admin/AddService/AddService";
+import NotFound from "./pages/NotFound/NotFound";
 function App() {
   return (
     <div className="App">
@@ -38,12 +39,18 @@ function App() {
             <PrivateRoute path="/service/:serviceId">
               <ServiceDetails></ServiceDetails>
             </PrivateRoute>
+            <PrivateRoute path="/addService">
+              <AddService></AddService>
+            </PrivateRoute>
             <PrivateRoute path="/order/:orderId">
               <UpdateOrder></UpdateOrder>
             </PrivateRoute>
             <PrivateRoute path="/admin">
               <Admin></Admin>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
           <Footer></Footer>
         </Router>
