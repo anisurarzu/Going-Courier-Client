@@ -3,51 +3,166 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import useService from "../../hooks/useServices";
+import { useForm } from "react-hook-form";
 
 import "./ServiceDetails.css";
+import useAuth from "../../hooks/useAuth";
 
-const Servicedetails = () => {
-  const [currentService, setCurrentService] = useState();
+const ServiceDetails = () => {
+  const [singleService, setSingleService] = useState({});
+  console.log("single service", singleService);
+  const { user } = useAuth();
+  const { register, handleSubmit, reset } = useForm();
+  const [message, setMessage] = useState("");
 
   const { serviceId } = useParams();
-  const { service } = useService();
+
   useEffect(() => {
-    let tempCurrentService = service.find(
-      (singleService) => singleService.id === parseInt(serviceId)
-    );
-    setCurrentService(tempCurrentService);
-  }, [service]);
+    fetch(`http://localhost:5000/services/${serviceId}`)
+      .then((res) => res.json())
+      .then((data) => setSingleService(data));
+  }, []);
+
+  const onSubmit = (data) => {
+    let orderStatus = "pending";
+    data.status = orderStatus;
+    fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.insertedId) {
+          setMessage("Order placed Successfully!");
+          reset();
+        }
+      });
+  };
 
   return (
-    <div className="details-container">
-      {currentService ? (
+    <div className="details-container py-12 xl:py-16 lg:py-16">
+      {singleService ? (
         <>
-          <div className="grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 pt-16 lg:pt-8 ">
-            <div></div>
-
-            <div className="shadow-lg lg:rounded-t-2xl bg-white p-8">
-              <h2 className="text-3xl font-bold text-green-500">
-                {currentService.name}
+          <div className="grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 pt-16 lg:pt-8 ">
+            <div className="lg:rounded-t-2xl bg-white p-8">
+              <h2 className="text-3xl font-bold text-gray-500">
+                {singleService.name}
               </h2>
               <div className=" p-8">
-                <img className="rounded-2xl" src={currentService.img} alt="" />
+                <img className="rounded-2xl" src={singleService.img} alt="" />
               </div>
               <hr /> <br />
               <p className="text-xl font-bold text-gray-700">
-                Price Range: {currentService.price}৳
+                Price Range: {singleService.price}৳
               </p>
               <hr />
               <br />
               <p className="p-2 text-center text-gray-600 text-base">
-                {currentService.describe}
+                {singleService.describe}
               </p>
               <Link to="/contact">
-                <button className="shadow rounded-lg text-white font-bold btn-design">
+                <button className="shadow rounded-lg text-white font-bold btn-design p-2">
                   Contact Us
                 </button>
               </Link>
             </div>
-            <div></div>
+            <div className="py-8 border-l-2 border-dotted">
+              <h3 className="text-2xl text-gray-600 font-bold py-4">
+                Confirm Your Order
+              </h3>
+              {/* --------
+                  place order form
+              -------------------- */}
+              <form
+                className=" grid grid-cols-1 gap-2 justify-center items-center border-2 border-dotted border-red-500 mx-12"
+                onSubmit={handleSubmit(onSubmit)}
+              >
+                <div className="pt-8">
+                  <input
+                    defaultValue={user.displayName}
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("name")}
+                  />{" "}
+                  <input
+                    defaultValue={user.email}
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("email")}
+                  />{" "}
+                </div>
+
+                <div>
+                  <input
+                    defaultValue={singleService.name}
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("serviceName")}
+                  />
+                  <input
+                    defaultValue={singleService.price}
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("price")}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="type " className="text-gray-700 pr-4">
+                    Type of Your Product :
+                  </label>
+                  <select
+                    className=" border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("type")}
+                  >
+                    <option value="foods">Foods</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="vehicles">Vehicles</option>
+                    <option value="books">Books</option>
+                    <option value="materials">Materials</option>
+                  </select>
+                </div>
+
+                <div>
+                  <input
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    type="number"
+                    {...register("quantity")}
+                    placeholder="quantity"
+                  />
+                  <input
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("phone")}
+                    placeholder="phone number"
+                  />
+                </div>
+                <br />
+                <label htmlFor="destination">Destination:</label>
+                <div>
+                  <input
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("sending_location")}
+                    placeholder="from"
+                  />
+                  <input
+                    className="border-2 p-2 w-1/3 mr-8 rounded"
+                    {...register("receiving_location")}
+                    placeholder="to"
+                  />
+                </div>
+
+                <input
+                  className="p-2 btn-design mx-16 xl:mx-64 lg:mx-64  my-4 text-white font-bold rounded"
+                  type="submit"
+                />
+              </form>
+
+              <p
+                id="message"
+                className="xl:text-2xl lg:text-2xl font-bold  pt-4"
+              >
+                {message}
+              </p>
+            </div>
           </div>
         </>
       ) : (
@@ -57,4 +172,4 @@ const Servicedetails = () => {
   );
 };
 
-export default Servicedetails;
+export default ServiceDetails;

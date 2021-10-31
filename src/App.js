@@ -7,6 +7,9 @@ import AuthProvider from "./Context/AuthProvider";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ServiceDetails from "./pages/ServiceDetails/ServiceDetails";
 import Login from "./pages/Login/Login";
+import Admin from "./pages/Admin/Admin";
+
+import Orders from "./pages/Orders/Orders";
 
 function App() {
   return (
@@ -24,8 +27,14 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
+            <PrivateRoute path="/myorders">
+              <Orders></Orders>
+            </PrivateRoute>
             <PrivateRoute path="/service/:serviceId">
               <ServiceDetails></ServiceDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/admin">
+              <Admin></Admin>
             </PrivateRoute>
           </Switch>
           <Footer></Footer>

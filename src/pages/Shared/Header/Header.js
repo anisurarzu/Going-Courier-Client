@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <div className="mx-auto">
-      <nav className=" px-5 bg-white fixed left-0 right-0 top-0 h-16 lg:h-20 shadow text-sm font-bold nav-container flex justify-between items-center z-50">
+      <nav className=" px-5 bg-white fixed left-0 right-0 top-0 h-16 lg:h-20 shadow-lg text-sm font-bold nav-container flex justify-between items-center z-50">
         <Link
           className="lg:h-full logo flex items-center lg:font-extrabold"
           to="/home"
@@ -30,9 +30,15 @@ const Header = () => {
 
         <div className="text-sm items-center text-green-400 hidden lg:flex">
           <NavLink to="/home">Home</NavLink>
-          <NavLink to="/doctors">Doctors</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+
+          <NavLink to="/admin">Admin</NavLink>
+          <div>
+            {user?.email && (
+              <span>
+                <Link to="/myorders">My Orders</Link>
+              </span>
+            )}
+          </div>
           <div>
             {user?.email && (
               <span className="user-details pl-8 text-gray-600">
@@ -45,12 +51,12 @@ const Header = () => {
                 className="ml-8 text-sm btn-design text-white rounded-md shadow p-2 "
                 onClick={logOut}
               >
-                <i class="fas fa-sign-out-alt pr-2"></i> log out
+                <i className="fas fa-sign-out-alt pr-2"></i> log out
               </button>
             ) : (
               <NavLink to="/login">
                 <span className="ml-8 text-sm btn-design text-white rounded-md shadow p-2 px-4">
-                  <i class="fas fa-sign-in-alt pr-2"></i> Login
+                  <i className="fas fa-sign-in-alt pr-2"></i> Login
                 </span>
               </NavLink>
             )}
@@ -71,8 +77,8 @@ const Header = () => {
       <NavDrawer
         visible={navDrawerVisible}
         setVisible={setNavDrawerVisible}
-        // user={user}
-        // logOut={logOut}
+        user={user}
+        logOut={logOut}
       />
     </div>
   );

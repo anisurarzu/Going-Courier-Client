@@ -27,33 +27,51 @@ const NavDrawer = ({ visible, setVisible, user, logOut }) => {
               {user?.displayName}
             </span>
           )}
-          <NavLink to="/home" className="py-2" onClick={closeDrawer}>
+          <NavLink
+            to="/home"
+            className="py-2 text-gray-700"
+            onClick={closeDrawer}
+          >
             Home
           </NavLink>
-          <NavLink to="/doctors" className="py-2" onClick={closeDrawer}>
+          <NavLink
+            to="/doctors"
+            className="py-2 text-gray-700"
+            onClick={closeDrawer}
+          >
             Doctors
           </NavLink>
-          <NavLink to="/about" className="py-2" onClick={closeDrawer}>
+          <NavLink
+            to="/about"
+            className="py-2 text-gray-700"
+            onClick={closeDrawer}
+          >
             About
           </NavLink>
-          <NavLink to="/contact" className="py-2" onClick={closeDrawer}>
-            Contact
-          </NavLink>
+          <div>
+            {user?.email && (
+              <span>
+                <NavLink to="/viewOrders" className="text-gray-700">
+                  View Orders
+                </NavLink>
+              </span>
+            )}
+          </div>
 
           {user?.email ? (
             <button
-              className="text-sm w-full block mt-2 bg-red-400 text-white rounded-md shadow p-2 "
+              className="text-sm w-full block mt-2 btn-design text-white rounded-md shadow p-2 "
               onClick={() => {
                 closeDrawer();
                 logOut();
               }}
             >
-              log out
+              <i className="fas fa-sign-out-alt pr-2"></i> log out
             </button>
           ) : (
             <NavLink to="/login" onClick={closeDrawer}>
-              <span className="text-sm w-full block mt-2 bg-red-500 text-white rounded-md shadow p-2 px-4">
-                Login
+              <span className="text-sm w-full block mt-2 btn-design text-white rounded-md shadow p-2 px-4">
+                <i className="fas fa-sign-in-alt pr-2"></i> Login
               </span>
             </NavLink>
           )}

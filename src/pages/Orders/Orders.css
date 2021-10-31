@@ -1,0 +1,12 @@
+.header {
+  font-size: 17px;
+  text-align: center;
+  color: rgb(255, 93, 1);
+  font-weight: bold;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgb(255, 93, 1);
+}
+.title-design {
+  font-family: "Acme", sans-serif;
+  color: #ff5d01;
+}

@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-gray-100">
-      <footer className="text-gray-700 body-font">
+    <div className="bg-gray-100 ">
+      <footer className="text-gray-700 body-font ">
         <div
           className="
       container
@@ -17,7 +17,8 @@ const Footer = () => {
       md:items-center
       lg:items-start
       md:flex-row md:flex-nowrap
-      flex-wrap flex-col
+      flex-wrap flex-col 
+       xl:px-24 lg:px-24
     "
         >
           <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
@@ -36,8 +37,8 @@ const Footer = () => {
               <img src={logo} alt="" />
             </Link>
             <p className="mt-2 text-sm text-gray-500">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi,
-              quam?
+              Made with in Dhaka, Bangladesh. Going and the Going logo are
+              trademarks of Going Ltd. © 2021 Going Ltd. All rights reserved.
             </p>
           </div>
           <div
