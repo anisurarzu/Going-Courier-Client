@@ -51,8 +51,12 @@ const NavDrawer = ({ visible, setVisible, user, logOut }) => {
           <div>
             {user?.email && (
               <span>
-                <NavLink to="/viewOrders" className="text-gray-700">
-                  View Orders
+                <NavLink to="/admin" className="text-gray-700">
+                  Admin
+                </NavLink>
+                <br />
+                <NavLink to="/myorders" className="text-gray-700">
+                  My Orders
                 </NavLink>
               </span>
             )}

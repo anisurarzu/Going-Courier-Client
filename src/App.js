@@ -10,6 +10,8 @@ import Login from "./pages/Login/Login";
 import Admin from "./pages/Admin/Admin";
 
 import Orders from "./pages/Orders/Orders";
+import ManageOrders from "./pages/Admin/ManageOrders/ManageOrders";
+import UpdateOrder from "./pages/Admin/UpdateOrder/UpdateOrder";
 
 function App() {
   return (
@@ -30,8 +32,14 @@ function App() {
             <PrivateRoute path="/myorders">
               <Orders></Orders>
             </PrivateRoute>
+            <PrivateRoute path="/manageOrders">
+              <ManageOrders></ManageOrders>
+            </PrivateRoute>
             <PrivateRoute path="/service/:serviceId">
               <ServiceDetails></ServiceDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/order/:orderId">
+              <UpdateOrder></UpdateOrder>
             </PrivateRoute>
             <PrivateRoute path="/admin">
               <Admin></Admin>

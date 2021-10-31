@@ -10,3 +10,8 @@
   font-family: "Acme", sans-serif;
   color: #ff5d01;
 }
+.delete-btn {
+  color: #ff5d01;
+  font-size: 15px;
+  padding-left: 40px;
+}

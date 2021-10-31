@@ -9,8 +9,8 @@ import "./ServiceDetails.css";
 import useAuth from "../../hooks/useAuth";
 
 const ServiceDetails = () => {
-  const [singleService, setSingleService] = useState({});
-  console.log("single service", singleService);
+  const [singleService, setSingleService] = useState();
+
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const [message, setMessage] = useState("");
@@ -85,12 +85,12 @@ const ServiceDetails = () => {
                     defaultValue={user.displayName}
                     className="border-2 p-2 w-1/3 mr-8 rounded"
                     {...register("name")}
-                  />{" "}
+                  />
                   <input
                     defaultValue={user.email}
                     className="border-2 p-2 w-1/3 mr-8 rounded"
                     {...register("email")}
-                  />{" "}
+                  />
                 </div>
 
                 <div>

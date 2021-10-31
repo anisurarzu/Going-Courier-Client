@@ -56,7 +56,7 @@ const Header = () => {
             ) : (
               <NavLink to="/login">
                 <span className="ml-8 text-sm btn-design text-white rounded-md shadow p-2 px-4">
-                  <i className="fas fa-sign-in-alt pr-2"></i> Login
+                  <i className="fas fa-sign-in-alt pr-2 "></i> Login
                 </span>
               </NavLink>
             )}
