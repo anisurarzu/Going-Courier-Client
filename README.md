@@ -24,7 +24,8 @@ We Provide Home Service.We care About your Security.
 
 ## About This Project
 
-it's a web application based on courier service .Going Courier guarantees reliable delivery of your product to your customer, at the right location in the right time through its efficient distribution management.
+it's a web application based on courier service .Users can login  using google,also can select a service and add their parcel information.They can placed/cancel their  order.
+Admin can check order status and confirm/cancel an order.
 
 ## Upcoming Services
 
